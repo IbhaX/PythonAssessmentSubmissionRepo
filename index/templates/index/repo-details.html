@@ -1,0 +1,61 @@
+{% extends 'index/base.html' %}
+
+{% block content %}
+<div class="container-fluid mt-4">
+    <div class="row justify-content-center">
+        <div class="card-body">
+            <div class="d-flex justify-content-center align-items-center">
+                <h1 class="text-center">Repository Analytics</h1>
+            </div>
+        </div>
+        <div class="col-lg-8">
+            <div class="card mb-4 shadow">
+                <div class="card-body">
+                    <h3 class="card-title"><b>{{ repo.name }}</b></h3>
+                    <h6 class="card-subtitle mb-2 text-muted">{{ repo.full_name }}</h6>
+                    <p class="card-text">{{ repo.description }}</p>
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <tbody>
+                                <tr>
+                                    <th scope="row">Forks</th>
+                                    <td>{{ repo.forks_count }}</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Open Issues</th>
+                                    <td>{{ repo.open_issues }}</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Watchers</th>
+                                    <td>{{ repo.watchers }}</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Created At</th>
+                                    <td>{{ repo.created_at }}</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Last Updated</th>
+                                    <td>{{ repo.updated_at }}</td>
+                                </tr>
+                                {% if repo.license %}
+                                    <tr>
+                                        <th scope="row">License</th>
+                                        <td>{{ repo.license.name }}</td>
+                                    </tr>
+                                {% endif %}
+                                <tr>
+                                    <th scope="row">Clone</th>
+                                    <td><a href="{{ repo.clone_url }}" class="text-decoration-none">{{ repo.clone_url }}</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <a href="{{ repo.html_url }}" class="btn btn-primary mt-2">View Repository</a>
+                    <a href="{{ repo.owner.html_url }}" class="btn btn-secondary mt-2">Owner: {{ repo.owner.username }}</a>
+                    <a class="btn btn-danger mt-2" onclick="history.back()">Back</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

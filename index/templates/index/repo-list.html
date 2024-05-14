@@ -1,0 +1,11 @@
+<div class="card mt-5">
+    {% for repo in results %}
+        <a href="{% url 'repo-details' repo.repo_owner repo.repo_name %}" class="card-link shadow text-decoration-none">
+            <div class="card-body">
+                <h5 class="card-title">{{ repo.repo_name }}</h5>
+                <p class="card-text">{{ repo.repo_description }}</p>
+            </div>
+        </a>
+        <hr>
+    {% endfor %}
+</div>
