@@ -23,7 +23,7 @@ This is a Django web application that retrieves analytic reports about a searche
   ```python
     python3 -m venv env
   ```
-  source env/bin/activate  # On Windows, use `env\Scripts\activate`
+  `source env/bin/activate` for linux and mac  # On Windows, use `env\Scripts\activate`
 
 
 4. Install the required dependencies:
